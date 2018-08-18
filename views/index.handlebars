@@ -1,0 +1,72 @@
+<h1> Eat The Burgers</h1>
+
+<h2> Burgers Available</h2>
+
+<ul>
+    {{#each burgers}}
+        {{#unless this.devoured}}
+            <li>
+                
+                {{this.id}}
+                {{this.burger_name}}
+
+
+                <button data-id="{{this.id}}" type="submit" class="devourButton">Devour</button>
+                
+            </li>
+        {{/unless}}
+    {{/each}}
+</ul>
+
+
+
+<h2>Burgers Devoured</h2>
+
+<ul>
+    {{#each burgers}}
+         {{#if this.devoured}}
+            <li>
+                {{this.id}}
+                {{this.burger_name}}
+            </li>
+        {{/if}}
+    {{/each}}
+</ul>
+
+
+<script type="text/javascript">
+
+$(".devourButton").on("click", function(event) {
+
+    event.preventDefault();
+
+    var id = $(this).data('id');
+    
+    var burgerDevoured = {
+        devoured: true;
+    }
+
+
+    $.ajax("/api/burgers" + id, {
+        type: "PUT",
+        data: burgerDevoured
+    }).then(
+        function() {
+            console.log("This burger has been devoured" + id);
+            location.reload();
+
+        };
+    );
+
+};
+
+
+
+
+
+
+
+
+
+
+</script>
