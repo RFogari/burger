@@ -9,6 +9,9 @@ var app = express();
 
 app.use(express.static("public"));
 
+//static folder for CSS
+app.use(express.static(__dirname + "/app/public"));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
