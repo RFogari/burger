@@ -5,7 +5,7 @@ var connection = require("../config/connection");
 //for loop to create question marks which will be used later for MySQL queries
 function questionMarks(num) {
     var arr = [];
-    
+
     for(var i = 0; i < num; i++) {
         arr.push("?");
     }
@@ -39,7 +39,7 @@ var orm = {
 
     //Query for all burgers.
 
-    all: function (tableInput, cb) {
+    selectAll: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
 
         connection.query(queryString, function(err, data){
@@ -52,8 +52,8 @@ var orm = {
     },
 
     //Query for inserting a new burger
-    
-    create: function(table, cols, vals, cb) {
+
+    insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -62,7 +62,7 @@ var orm = {
         queryString += "VALUES (";
         queryString += questionMarks(vals.length);
         queryString += ") ";
-        
+
         console.log(queryString);
 
         connection.query(queryString, vals, function(err, data) {
@@ -74,14 +74,14 @@ var orm = {
     },
 
     //Query for updating status of burger = e.g. devoured
-    update: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE" + table;
+    updateOne: function(table, objColVals, condition, cb) {
+        var queryString = "UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
-    
+
 
         console.log(queryString);
 

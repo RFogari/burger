@@ -3,7 +3,7 @@
     <div class='jumbotron'>
 
         <h1 class='headerTitle'> Eat The Burgers</h1>
-        
+
     </div>
 
 
@@ -18,13 +18,13 @@
     {{#each burgers}}
         {{#unless this.devoured}}
             <li>
-                
+
                 {{this.id}}
                 {{this.burger_name}}
 
 
-                <button data-id="{{this.id}}" type="submit" class="devourButton">Devour</button>
-                
+                <button data-id="{{this.id}}" data-eaten="{{devoured}}" class="devourButton">Devour</button>
+
             </li>
         {{/unless}}
     {{/each}}
@@ -48,34 +48,25 @@
 
 <script type="text/javascript">
 
-$(".devourButton").on("click", function(event) {
+$('.devourButton').on("click", function(event) {
+  var id = $(this).data('id');
+  var burgerDevoured = $(this).data('devoured');
 
-    event.preventDefault();
+  var burgerState = {
+    devoured: burgerDevoured
+  };
 
-    var id = $(this).data('id');
-    
-    var burgerDevoured = {
-        devoured: true;
+  $.ajax('/api/burgers' + id, {
+    type: 'PUT',
+    data: burgerState
+  }).then(
+    function() {
+      console.log("burger" + id + "stated changed to " + burgerState);
+      location.reload();
     }
+  )
 
-
-    $.ajax("/api/burgers" + id, {
-        type: "PUT",
-        data: burgerDevoured
-    }).then(
-        function() {
-            console.log("This burger has been devoured" + id);
-            location.reload();
-
-        };
-    );
-
-};
-
-
-
-
-
+});
 
 
 

@@ -11,7 +11,7 @@ var burger = require("../models/burger");
 
 //first route to get all burgers
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
         var hbsObject = {
             burgers: data
         };
@@ -22,13 +22,13 @@ router.get("/", function(req, res) {
 
 //route to add a burger
 router.post("/", function(req, res) {
-    burger.create(
+    burger.insertOne(
     [
         "burger_name"
     ],
     [
         req.body.burger_name
-    ], 
+    ],
         function() {
         res.redirect("/");
     });
@@ -40,19 +40,18 @@ router.put("/api/burgers:id", function(req, res) {
 
     console.log("condition", condition);
 
-    burger.update(
+    burger.updateOne(
         {
-            deveoured: true
+            deveoured: req.body.devoured
         },
 
     condition, function() {
         res.redirect('/');
     });
-    
+
 
 });
 
 
 
 module.exports = router;
-

@@ -10,7 +10,7 @@ var app = express();
 app.use(express.static("public"));
 
 //static folder for CSS
-app.use(express.static(__dirname + "/app/public"));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,7 +21,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burger_controllers");
+var routes = require("./controllers/burger_controllers.js");
 
 app.use(routes);
 
