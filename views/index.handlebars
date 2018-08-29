@@ -23,7 +23,7 @@
                 {{this.burger_name}}
 
 
-                <button data-id="{{this.id}}" data-eaten="{{devoured}}" class="devourButton">Devour</button>
+                <button data-id="{{this.id}}" data-devoured="{{this.devoured}}" class="devourButton">Devour</button>
 
             </li>
         {{/unless}}
@@ -50,11 +50,11 @@
 
 $('.devourButton').on("click", function(event) {
   var id = $(this).data('id');
-  var burgerDevoured = $(this).data('devoured');
 
-  var burgerState = {
-    devoured: burgerDevoured
-  };
+  var burgerState = $(this).data('devoured');
+
+
+  console.log("This buger " + id + " has been devoured");
 
   $.ajax('/api/burgers' + id, {
     type: 'PUT',
