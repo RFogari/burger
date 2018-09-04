@@ -42,11 +42,11 @@ var orm = {
     selectAll: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
 
-        connection.query(queryString, function(err, data){
+        connection.query(queryString, function(err, result){
             if (err) {
                 throw err;
             }
-            cb(data);
+            cb(result);
         });
 
     },
@@ -57,7 +57,7 @@ var orm = {
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
-        queryString += cols.tostring();
+        queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
         queryString += questionMarks(vals.length);
@@ -65,11 +65,11 @@ var orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, vals, function(err, data) {
+        connection.query(queryString, vals, function(err, result) {
             if(err) {
                 throw err;
             }
-            cb(data);
+            cb(result);
         });
     },
 
@@ -85,11 +85,11 @@ var orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, function(err, data) {
+        connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
             }
-            cb(data);
+            cb(result);
         });
 
     }

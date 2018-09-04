@@ -23,7 +23,7 @@
                 {{this.burger_name}}
 
 
-                <button data-id="{{this.id}}" data-devoured="{{this.devoured}}" class="devourButton">Devour</button>
+                <button data-id="{{this.id}}" data-devoured="{{devoured}}" class="devourButton">Devour</button>
 
             </li>
         {{/unless}}
@@ -40,34 +40,79 @@
             <li>
                 {{this.id}}
                 {{this.burger_name}}
+                <button data-id="{{this.id}}" data-available="{{this.devoured}}" class="availableButton">Available</button>
             </li>
         {{/if}}
     {{/each}}
 </ul>
 
 
+<div class="burgerForm">
+    <h2> Add A Burger</h2>
+
+    <form>
+      <div class="form-group addBurger">
+        <label for="addingNewBurger">Add A BUrger Here</label>
+        <input type="text" class="form-control" id="newBurgerName" aria-describedby="newBurgerHelp" placeholder="Add Your Favorite Burger">
+
+      <button type="submit" class="btn btn-primary" class="addBurger">Submit</button>
+    </div>
+    </form>
+
+</div>
+
 <script type="text/javascript">
 
 $('.devourButton').on("click", function(event) {
   var id = $(this).data('id');
 
-  var burgerState = $(this).data('devoured');
+  var burgerEatin = $(this).data('devoured');
 
-
-  console.log("This buger " + id + " has been devoured");
+  console.log(burgerEatin);
 
   $.ajax('/api/burgers' + id, {
     type: 'PUT',
-    data: burgerState
+    data: burgerEatin
   }).then(
     function() {
-      console.log("burger" + id + "stated changed to " + burgerState);
+
+      console.log('Burger has been devoured!');
+
       location.reload();
-    }
-  )
+
+    });
 
 });
 
+
+
+$('.burgerForm').on('submit', function(event) {
+  alert("button must be working");
+
+  //prevent the page from reloading
+  event.preventDefault();
+
+alert("Add Button Working!")
+
+  var newBurger = {
+    burger_name: $('#newBurgerName').val().trim(),
+    devoured: false
+  }
+
+  //send new burger to the DB through a POST request.
+
+  $.ajax('/api/burgers', {
+    type: 'POST',
+    data: newBurger
+  }).then(
+    function(){
+      console.log("Burger has been added!");
+
+      //reload location to show updated table with new burgers.
+      location.reload();
+    });
+
+});
 
 
 

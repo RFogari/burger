@@ -21,7 +21,7 @@ router.get("/", function(req, res) {
 });
 
 //route to add a burger
-router.post("/", function(req, res) {
+router.post("/api/burgers", function(req, res) {
     burger.insertOne(
     [
         "burger_name"
@@ -29,14 +29,17 @@ router.post("/", function(req, res) {
     [
         req.body.burger_name
     ],
-        function() {
+        function(data) {
         res.redirect("/");
     });
 });
 
 //route to update burger status to devoured
 router.put("/api/burgers:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+
+  var condition = "id = " + req.params.id;
+
+
 
     console.log("condition", condition);
 
@@ -45,8 +48,8 @@ router.put("/api/burgers:id", function(req, res) {
             devoured: true
         },
 
-    condition, function() {
-        res.redirect('/');
+    condition, function(result) {
+        res.status(200).end();
     });
 
 

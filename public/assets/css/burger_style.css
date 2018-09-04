@@ -1,11 +1,31 @@
 body {
-    background-color:green;
+    background: url("../img/burgerbackground.jpg");
 }
 
 .headerTitle {
     text-align: center;
+    font-family: 'Walter Turncoat', cursive;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 h1 {
     color:blue;
+}
+
+{
+
+
+    font-family: 'Concert One', cursive;
+
+    font-family: 'Ewert', cursive;
+
+    font-family: 'Zilla Slab Highlight', cursive;
+
+    font-family: 'Swanky and Moo Moo', cursive;
+
+    font-family: 'Walter Turncoat', cursive;
+
+
 }
