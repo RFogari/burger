@@ -2,6 +2,9 @@
 
     <div class='jumbotron'>
 
+        <div class="burgerIcon">
+        <img class="icon" src="https://png.icons8.com/color/200/000000/hamburger.png">
+        </div>
         <h1 class='headerTitle'> Eat The Burgers</h1>
 
     </div>
@@ -11,54 +14,73 @@
 </div>
 
 
+<div class="containter">
+    <div class="burgerDisplay">
+        <div class="row">
+            <div class="col">
 
-<h2> Burgers Available</h2>
+                <div class="availableBurgers">
+                    <h2 class="burgerDisplayTextHeader"> Burgers Available</h2>
 
-<ul>
-    {{#each burgers}}
-        {{#unless this.devoured}}
-            <li>
+                    
+                        {{#each burgers}}
+                            {{#unless this.devoured}}
+                                <li class="burgerOption">
 
-                {{this.id}}
-                {{this.burger_name}}
-
-
-                <button data-id="{{this.id}}" data-devoured="{{devoured}}" class="devourButton">Devour</button>
-
-            </li>
-        {{/unless}}
-    {{/each}}
-</ul>
+                                    {{this.id}}
+                                    {{this.burger_name}}
 
 
+                                    <button data-id="{{this.id}}" data-devoured="{{devoured}}" class="devourButton">Devour</button>
 
-<h2>Burgers Devoured</h2>
+                                </li>
+                            {{/unless}}
+                        {{/each}}
+                    
+                </div>
+            </div>
 
-<ul>
-    {{#each burgers}}
-         {{#if this.devoured}}
-            <li>
-                {{this.id}}
-                {{this.burger_name}}
-                <button data-id="{{this.id}}" data-available="{{this.devoured}}" class="availableButton">Available</button>
-            </li>
-        {{/if}}
-    {{/each}}
-</ul>
+            <div class="col">
+                <div class="devouredBurgers">
+                    <h2 class="burgerDisplayTextHeader">Burgers Devoured</h2>
 
+                    
+                        {{#each burgers}}
+                            {{#if this.devoured}}
+                                <li class="burgerOption">
+                                    {{this.id}}
+                                    {{this.burger_name}}
+                                    
+                                </li>
+                            {{/if}}
+                        {{/each}}
+                    
 
-<div class="burgerForm">
-    <h2> Add A Burger</h2>
+                </div>
+            </div>
 
-    <form>
-      <div class="form-group addBurger">
-        <label for="addingNewBurger">Add A BUrger Here</label>
-        <input type="text" class="form-control" id="newBurgerName" aria-describedby="newBurgerHelp" placeholder="Add Your Favorite Burger">
+        </div>
 
-      <button type="submit" class="btn btn-primary" class="addBurger">Submit</button>
     </div>
-    </form>
+</div>
 
+
+
+<div class="container">
+
+    <div class="burgerForm">
+        <h2> Add A Burger</h2>
+
+        <form>
+        <div class="form-group addBurger">
+            <label for="addingNewBurger">Add A BUrger Here</label>
+            <input type="text" class="form-control" id="newBurgerName" aria-describedby="newBurgerHelp" placeholder="Add Your Favorite Burger">
+
+        <button type="submit" class="btn btn-primary" class="addBurger">Submit</button>
+        </div>
+        </form>
+
+    </div>
 </div>
 
 <script type="text/javascript">

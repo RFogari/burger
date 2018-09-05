@@ -6,12 +6,66 @@ body {
     text-align: center;
     font-family: 'Walter Turncoat', cursive;
     color: black;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
+
 }
 
-h1 {
-    color:blue;
+.jumbotron {
+    width: 50%;
+    height: 25%;
+    margin: auto;
+}
+
+.burgerDisplay {
+    margin-top: 250px;
+}
+
+.availableBurgers {
+    
+    background-color: lightgray;
+    margin-left: 15%;
+    text-align:center;
+    padding: 10px;
+    
+}
+
+.devouredBurgers {
+    
+    background-color: lightgray;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 15%;
+    float: relative;
+    padding: 10px;
+}
+
+.burgerDisplayTextHeader {
+    text-align: center;
+}
+
+.burgerForm {
+    text-align: center;
+    background-color: lightgray;
+    margin-top: 200px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+.devourButton {
+    margin-left: 20px;
+}
+
+.burgerIcon {
+    text-align: center;
+
+}
+
+.burgerOption {
+    margin: 10px;
 }
 
 {
