@@ -13,50 +13,54 @@ body {
 
 .jumbotron {
     width: 50%;
-    height: 25%;
+    height: 15%;
     margin: auto;
+    background-color: lightyellow;
 }
 
 .burgerDisplay {
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .availableBurgers {
-    
-    background-color: lightgray;
+
+    background-color: lightyellow;
     margin-left: 15%;
     text-align:center;
-    padding: 10px;
-    
+    padding: 15px;
+
 }
 
 .devouredBurgers {
-    
-    background-color: lightgray;
+
+    background-color: lightyellow;
     text-align: center;
     margin-left: 10%;
     margin-right: 15%;
     float: relative;
-    padding: 10px;
+    padding: 15px;
 }
 
 .burgerDisplayTextHeader {
     text-align: center;
+    margin: 15px;
+    font-family: 'Gaegu', cursive;
 }
 
 .burgerForm {
     text-align: center;
-    background-color: lightgray;
-    margin-top: 200px;
+    background-color: lightyellow;
+    margin-top: 150px;
+    margin-left: 13%;
     width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    
-    
+    font-family: 'Gaegu', cursive;
+    padding: 10px;
+
+
 }
 
-.devourButton {
-    margin-left: 20px;
+#buttonDevour {
+    margin-left: 100px;
 }
 
 .burgerIcon {
@@ -68,18 +72,6 @@ body {
     margin: 10px;
 }
 
-{
-
-
-    font-family: 'Concert One', cursive;
-
-    font-family: 'Ewert', cursive;
-
-    font-family: 'Zilla Slab Highlight', cursive;
-
-    font-family: 'Swanky and Moo Moo', cursive;
-
-    font-family: 'Walter Turncoat', cursive;
-
-
+#addButton {
+  margin-top:10px;
 }

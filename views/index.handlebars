@@ -3,9 +3,9 @@
     <div class='jumbotron'>
 
         <div class="burgerIcon">
-        <img class="icon" src="https://png.icons8.com/color/200/000000/hamburger.png">
+        <img class="icon" src="https://png.icons8.com/color/175/000000/hamburger.png" alt="<a href='https://icons8.com'>Icon pack by Icons8</a>">
         </div>
-        <h1 class='headerTitle'> Eat The Burgers</h1>
+        <h1 class='headerTitle'> Eat The Burgers!</h1>
 
     </div>
 
@@ -22,39 +22,50 @@
                 <div class="availableBurgers">
                     <h2 class="burgerDisplayTextHeader"> Burgers Available</h2>
 
-                    
+                      <div class="list-group">
+
                         {{#each burgers}}
                             {{#unless this.devoured}}
-                                <li class="burgerOption">
+
+                          
+
+                            <li class="list-group-item list-group-item-warning">
 
                                     {{this.id}}
                                     {{this.burger_name}}
 
 
-                                    <button data-id="{{this.id}}" data-devoured="{{devoured}}" class="devourButton">Devour</button>
+                                    <button type="button" class="btn btn-warning" data-id="{{this.id}}" data-devoured="{{devoured}}" class="devourButton" id="buttonDevour">Devour</button>
 
                                 </li>
                             {{/unless}}
                         {{/each}}
-                    
+
+
                 </div>
             </div>
+          </div>
 
             <div class="col">
                 <div class="devouredBurgers">
+
+
                     <h2 class="burgerDisplayTextHeader">Burgers Devoured</h2>
 
-                    
+                    <div class="list-group">
+
+
                         {{#each burgers}}
                             {{#if this.devoured}}
-                                <li class="burgerOption">
+
+                              <li class="list-group-item list-group-item-danger">
+
                                     {{this.id}}
                                     {{this.burger_name}}
-                                    
                                 </li>
                             {{/if}}
                         {{/each}}
-                    
+
 
                 </div>
             </div>
@@ -73,10 +84,10 @@
 
         <form>
         <div class="form-group addBurger">
-            <label for="addingNewBurger">Add A BUrger Here</label>
-            <input type="text" class="form-control" id="newBurgerName" aria-describedby="newBurgerHelp" placeholder="Add Your Favorite Burger">
 
-        <button type="submit" class="btn btn-primary" class="addBurger">Submit</button>
+            <input type="text" class="form-control" id="newBurgerName" aria-describedby="newBurgerHelp" placeholder="">
+
+        <button type="submit" class="btn btn-warning" class="addBurger" id="addButton">Submit</button>
         </div>
         </form>
 
