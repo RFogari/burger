@@ -7,7 +7,7 @@ The objective was to create a burger logger with MySQL, Node, Express, Handlebar
 
 ### Live Demo
 
-The live demo of this application is available on Heroku  [here](wwww.wwww.wwww).
+The live demo of this application is available on Heroku  [here](https://floating-basin-28899.herokuapp.com/).
 
 
 
