@@ -39,7 +39,7 @@ var orm = {
 
     //Query for all burgers.
 
-    selectAll: function (table, cb) {
+    /*selectAll: function (table, cb) {
         var queryString = "SELECT * FROM " + table + ';';
 
         connection.query(queryString, function(err, result) {
@@ -51,6 +51,7 @@ var orm = {
         });
 
     },
+    */
 
     //Query for inserting a new burger
 
