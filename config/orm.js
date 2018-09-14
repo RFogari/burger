@@ -40,17 +40,14 @@ var orm = {
     //Query for all burgers.
 
     selectAll: function (table, cb) {
-        var queryString = "SELECT * FROM " + table + ";";
+        var queryString = "SELECT * FROM " + table;
 
         connection.query(queryString, function(err, result){
             if (err) {
                 throw err;
-
-            
             }
             cb(result);
 
-            console.log(err);
         });
 
     },
