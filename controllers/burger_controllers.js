@@ -15,9 +15,10 @@ router.get('/', function(req, res) {
     burger.selectAll(function(data) {
         
         var hbsObject = {
+
             burgers: data
         };
-        //console.log(hbsObject);
+        console.log(hbsObject);
         res.render('index', hbsObject);
     });
 });
@@ -31,13 +32,13 @@ router.post("/api/burgers", function(req, res) {
     [
         req.body.burger_name
     ],
-        function(data) {
-        res.redirect("/");
+        function(result) {
+        res.redirect('/');
     });
 });
 
 //route to update burger status to devoured
-router.put("/api/burgers:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
 
   var condition = "id = " + req.params.id;
 
@@ -51,7 +52,11 @@ router.put("/api/burgers:id", function(req, res) {
         },
 
     condition, function(result) {
-        res.status(200).end();
+        if(result.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
     });
 
 

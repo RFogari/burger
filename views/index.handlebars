@@ -35,7 +35,7 @@
                                     {{this.burger_name}}
 
 
-                                    <button type="button" class="btn btn-warning" data-id="{{this.id}}" data-devoured="{{devoured}}" class="devourButton" id="buttonDevour">Devour</button>
+                                    <button type="button" class="btn btn-warning buttonDevour" data-id="{{this.id}}" data-devoured="{{devoured}}" id="buttonDevour">Devour</button>
 
                                 </li>
                             {{/unless}}
@@ -96,14 +96,17 @@
 
 <script type="text/javascript">
 
-$('.devourButton').on("click", function(event) {
+$('.buttonDevour').on("click", function(event) {
+
   var id = $(this).data('id');
 
   var burgerEatin = $(this).data('devoured');
 
-  console.log(burgerEatin);
 
-  $.ajax('/api/burgers' + id, {
+  console.log(id + burgerEatin);
+  
+
+  $.ajax('/api/burgers/' + id, {
     type: 'PUT',
     data: burgerEatin
   }).then(
@@ -125,7 +128,7 @@ $('.burgerForm').on('submit', function(event) {
   //prevent the page from reloading
   event.preventDefault();
 
-alert("Add Button Working!")
+
 
   var newBurger = {
     burger_name: $('#newBurgerName').val().trim(),

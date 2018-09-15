@@ -34,7 +34,7 @@ function objToSql(ob) {
 }
 
 
-
+//object fo all SQL statement functions
 var orm = {
 
     //Query to display all the burgers in the table.
@@ -42,20 +42,16 @@ var orm = {
     selectAll: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ';';
 
+        console.log(queryString);
+
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
-
-            
             }
+
             cb(result);
-
-            console.log(err);
-
         });
-
     },
-    
 
     //Query for inserting a new burger into the table
 
@@ -102,4 +98,5 @@ var orm = {
 
 };
 
+//export the orm object for the burger model.
 module.exports = orm;
