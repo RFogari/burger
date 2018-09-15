@@ -4,7 +4,7 @@ var mysql = require('mysql');
 
 //connection to MySQL DB.  Password will be removed before uploading.
 var connection = mysql.createConnection({
-    
+    port: 3306,
     host: "localhost",
     user: "root",
     password: "fogari",
