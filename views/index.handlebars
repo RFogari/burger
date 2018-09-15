@@ -123,7 +123,7 @@ $('.buttonDevour').on("click", function(event) {
 
 
 $('.burgerForm').on('submit', function(event) {
-  alert("button must be working");
+  
 
   //prevent the page from reloading
   event.preventDefault();
@@ -142,7 +142,14 @@ $('.burgerForm').on('submit', function(event) {
     data: newBurger
   }).then(
     function(){
+      
+      //console log that a new burger has been added
       console.log("Burger has been added!");
+      
+      //reset the burger form after the new burger posts
+      $('burgerForm').each(function() {
+          this.reset();
+      });
 
       //reload location to show updated table with new burgers.
       location.reload();
