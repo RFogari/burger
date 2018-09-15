@@ -39,8 +39,8 @@ var orm = {
 
     //Query to display all the burgers in the table.
 
-    selectAll: function (tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ';';
+    selectAll: function (table, cb) {
+        var queryString = "SELECT * FROM " + table;
 
         console.log(queryString);
 
