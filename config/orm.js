@@ -37,10 +37,10 @@ function objToSql(ob) {
 
 var orm = {
 
-    //Query for all burgers.
+    //Query to display all the burgers in the table.
 
-    selectAll: function (table, cb) {
-        var queryString = "SELECT * FROM " + table + ';';
+    selectAll: function (tableInput, cb) {
+        var queryString = "SELECT * FROM " + tableInput + ';';
 
         connection.query(queryString, function(err, result) {
             if (err) {
@@ -50,12 +50,14 @@ var orm = {
             }
             cb(result);
 
+            console.log(err);
+
         });
 
     },
     
 
-    //Query for inserting a new burger
+    //Query for inserting a new burger into the table
 
     insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
