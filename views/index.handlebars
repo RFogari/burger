@@ -98,6 +98,8 @@
 
 $('.buttonDevour').on("click", function(event) {
 
+    
+
   var id = $(this).data('id');
 
   var burgerEatin = $(this).data('devoured');
@@ -114,9 +116,9 @@ $('.buttonDevour').on("click", function(event) {
 
       console.log('Burger has been devoured!');
 
-      location.reload();
-
     });
+    //reload after api update.
+    window.location.reload(true);
 
 });
 
@@ -152,7 +154,7 @@ $('.burgerForm').on('submit', function(event) {
       });
 
       //reload location to show updated table with new burgers.
-      location.reload();
+      window.location.reload(true);
     });
 
 });

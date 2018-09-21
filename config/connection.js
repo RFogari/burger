@@ -1,16 +1,23 @@
 //MySQL connection.
 
 var mysql = require('mysql');
-var dotenv = require('dotenv');
+//var dotenv = require('dotenv');
 
-
+/*
 //connection to MySQL DB.  Password will be removed before uploading.
 var connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DATABASE
-});
+});*/
+
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'fogari',
+    database: 'burgers_db'
+})
 
 
 //establishing a connection to the database and confirming connection.
