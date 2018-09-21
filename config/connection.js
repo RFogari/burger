@@ -1,23 +1,22 @@
 //MySQL connection.
 
 var mysql = require('mysql');
-//var dotenv = require('dotenv');
 
-/*
-//connection to MySQL DB.  Password will be removed before uploading.
-var connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DATABASE
-});*/
+//creating a connection to JAWSDB URL
+if (process.env.JAWSDB_URL) {
+    
+    var connection = mysql.createConnection(process.env.JAWSDB_URL)
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'fogari',
-    database: 'burgers_db'
-})
+} else {
+        //connection for running locally
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'fogari',
+            database: 'burgers_db'
+        });
+    }
+
 
 
 //establishing a connection to the database and confirming connection.
