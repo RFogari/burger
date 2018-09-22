@@ -10,13 +10,13 @@ Eat the burger is a restaurant application designed using Node.js, Express, MySQ
 
 ## To Begin
 
-On page load, the application presents users with a list of available burgers to the left and devoured burgers to the right.  A user can submit their favorite burger to be added to the available list.  The site will update in realtime after the new burger has been added.  When the user clicks the devour button, the burger will be devored, removed from the available list and added to the burgers devoured list.
+On page load, the application presents users with a list of available burgers to the left and devoured burgers to the right.  A user can submit their favorite burger to be added to the available list.  The site will update in realtime after the new burger has been added.  When the user clicks the devour button, the burger will be devoured, removed from the available list and added to the burgers devoured list.
 
 
 
 ## Live Demo
 
-The live demo of this application is available on Heroku:   [Click Me](https://fathomless-anchorage-71193.herokuapp.com/burgers).
+The live demo of this application is hosted on Heroku at the following  [Link](https://fathomless-anchorage-71193.herokuapp.com/burgers).
 
 
 
